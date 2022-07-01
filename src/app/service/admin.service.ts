@@ -20,6 +20,10 @@ export class AdminService {
   getAdmin(mail:string,password:string):Observable<any>{
     return this.http.get<any>(`${this.baseUrl}/getAdmin/${mail}/${password}`);
   }
+  getAllAdmins(){
+    return this.http.get(`${this.baseUrl}/getAllAdmins`);
+  }
+
 
 
 }

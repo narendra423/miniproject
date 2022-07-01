@@ -1,0 +1,87 @@
+
+<body style="background-color: #e9f0ed;">
+    <!-- <div class="text-center">
+        <mat-form-field>
+            <input [(ngModel)]="patientName" matInput placeholder="patientName" name="patientName"
+            [formControl]="control" [matAutocomplete]="auto" required
+            (keyup.enter)="getFilterredPatients(filteredStreets)">
+             <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let street of filteredStreets  | async" [value]="street">
+                                               {{street}}
+                       </mat-option>
+               </mat-autocomplete>
+       </mat-form-field>
+    </div> -->
+   
+    <div class="container pt-4 pl-3" *ngIf="showlist">
+        <h5>Search by Admitted date :</h5>
+        <div class="col-12 d-flex flex-row justify-content-between" style="text-align:center;">
+            <input style="height: 28px;" type="date" class="search-query form-control" name="location" placeholder="search" [(ngModel)]="admitteddate"/>
+            <!-- <h1>{{location}}</h1> -->
+            <span>
+                <button class="btn" type="button" (click)="findPatientsByAdmittedDate()">
+                    <span><i class="material-icons">search</i></span>
+                </button>
+            </span>
+                <button class="btn" type="button">
+                    <!-- <span class="material-icons-outlined" mat-button type="button" >refresh</span> -->
+                    <button mat-raised-button (click)="refresh()">refresh</button>
+                </button>
+        </div>
+    </div>
+    
+    <div *ngIf="showlist">
+        <div class="row p-3">
+            <!-- <div class="d-flex flex-row justify-content-end">
+                <button class="btn btn-primary" routerLink="/createpatient"> Add patient</button>
+            </div> -->
+            <div>
+                <table class="table table1 shadow-lg mt-3" >
+                    <thead>
+                        <tr style="background-color:#d5dae0;">
+                            <th>S.NO</th>
+                            <th>Name</th>
+                            <th>Gender </th>
+                            <th>Age </th>
+                            <th>BloodGroup</th>
+                            <th>MobileNumber </th>
+                            <th>Location</th>
+                            <th>admittedDate</th>
+                            <th>Doctor</th>
+                            <!-- <th>Assign to another doctor</th> -->
+                           
+                            <!-- <th>Update</th>
+                            <th>Delete</th> -->
+                            
+                        </tr>               
+                    </thead>
+                    <tbody>
+                       
+                        <tr *ngFor="let patient of patients;let i=index">
+                            <td scope="row">{{i+1}}</td>
+                            <td>{{patient.patientName}}</td>
+                            <td>{{patient.patientGender}}</td>
+                            <td>{{patient.patientAge}}</td>
+                            <td>{{patient.patientBloodGroup}}</td>
+                            <td>{{patient.patientMobileNumber}}</td>
+                            <td>{{patient.patientLocation}}</td>
+                            <td>{{patient.admittedDate}}</td>
+                            <td><button style="background-color: darkslategrey; color: white;" (click)="getDoctor(patient.patientId)" class="btn">Get Doctor </button></td>
+                            <!-- <td>{{doctors.doctorName}}</td> -->
+                            <!-- <td><button style="background-color: darkslategrey;color: white;" class="btn">Update</button></td>
+                            <td><button class="btn btn-xs"><span><i class="material-icons">delete</i>
+                            </span></button></td> -->
+                           </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div  *ngIf="noresultsfound" class="d-flex flex-row justify-content-center sorrynotfound">
+        <h3>No results Found</h3><br>
+        <button class="btn btn-warning" style="margin-left: 20px;" (click)="showtables()">Retry</button><br>
+        
+    </div>
+</body>

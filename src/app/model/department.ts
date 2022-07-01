@@ -5,7 +5,7 @@ export class Department {
         hospital:{
             hospitalId:number
         }
-
+        
     ){
         
     }

@@ -1,0 +1,69 @@
+<body style="background-color: #e9f0ed;">
+    <div class="container">
+        <button class="btn mt-1" style="background-color: darkslategrey;color:white" routerLink="/RUDdoctor">
+            <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+            Back</button>
+        <div class="row p-3">
+            <div class="d-flex flex-row justify-content-end">
+                <!-- <h6>DoctorName :{{doctor.doctorName}}</h6> -->
+                <button style="background-color: darkslategrey;color:white" class="btn" routerLink="/createpatient"> Add patient</button>
+            </div>
+            <h6>Assigned patients List :</h6>
+            <div>
+                <table class="table table1 shadow-lg mt-3" >
+                    <thead>
+                        <tr style="background-color:#d5dae0;">
+                            <th>S.NO</th>
+                            <th>Hospital ID</th>
+                            <th>Name</th>
+                            <th>Gender </th>
+                            <th>Age </th>
+                            <th>BloodGroup</th>
+                            <th>Mobile</th>
+                            <th>Location</th>
+                            <th>admittedDate</th>
+                            <th>Doctor</th>
+                            <!-- <th>Assign to another doctor</th> -->
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            
+                        </tr>               
+                    </thead>
+                    <tbody>
+                       <tr *ngFor="let patient of patients;let i=index">
+                        <td scope="row">{{i+1}}</td>
+                        <td>{{hidddd}}</td>
+                        <td>{{patient.patientName}}</td>
+                        <td>{{patient.patientGender}}</td>
+                        <td>{{patient.patientAge}}</td>
+                        <td>{{patient.patientBloodGroup}}</td>
+                        <td>{{patient.patientMobileNumber}}</td>
+                        <td>{{patient.patientLocation}}</td>
+                        <td>{{patient.admittedDate}}</td>
+                        
+                        <td>{{doctor.doctorName}}</td>
+                        <td><button style="background-color: darkslategrey;color:white" class="btn" routerLink="/editpatient/{{patient.patientId}}">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                </svg>
+                            </span>
+                        </button></td>
+                        <button class="btn"
+                      mwlConfirmationPopover
+                      [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popovermessage"
+                      placement="top"
+                      (confirm)="deleteDepartmentById(patient.patientId)"
+                      (cancel)="cancelClicked=true"
+                      >
+                      <i class="material-icons">delete</i>
+                      </button>
+                       </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

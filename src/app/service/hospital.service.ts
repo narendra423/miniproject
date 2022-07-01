@@ -20,12 +20,12 @@ export class HospitalService {
     return this.http.get<any>(`${this.baseUrl}/getAllHospitals`);
   }
 
-  getHospitalByLocation(location:string):Observable<any>{
-    return this.http.get<any>(`${this.baseUrl}/readByLocation/${location}`);
+  getHospitalByLocation(hcode:string):Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/readByHospitalCode/${hcode}`);
   }
 
   getHospitalById(id:number){
-    return this.http.get<any>(`${this.baseUrl}/readById/${id}`);
+    return this.http.get<any>(`${this.baseUrl}/getHospitalById/${id}`);
   }
 
   updateHospitalById(id:number,value:string, value2: any):Observable<any>{
@@ -35,5 +35,13 @@ export class HospitalService {
   deleteHospital(id:number):Observable<any>{
     return this.http.delete(`${this.baseUrl}/deleteHospitalById/${id}`);
   }
+
+  getHospital(id:number,data:Hospital){
+    return this.http.get<any>(`${this.baseUrl}/updateHospital`,data);
+  }
+  updateHospital(hospital:Hospital){
+    return this.http.post(`${this.baseUrl}/updateHospital`,hospital);
+  }
+  
 
 }

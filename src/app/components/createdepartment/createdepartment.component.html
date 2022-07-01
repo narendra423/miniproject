@@ -1,17 +1,25 @@
-<div class="d-flex flex-row justify-content-center mt-5">
+<div class="d-flex flex-row justify-content-center p-5" style="background-color: #e9f0ed;">
     <div class="form-border shadow-lg">
         <h3 class="form-heading">Add Department :</h3>
         <form class="form-bg" [formGroup]="createDepartmentForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="form-title">Department Name:</label>
                 <br>
                 <span class="span-field" *ngIf="f.deptName && f.deptName.invalid && f.deptName.touched">*Required</span>
                 <input type="text" class="form-control form-field" formControlName="deptName"/>
+            </div> -->
+            <div class="form-group mt-2 mb-2">
+                <label class="form-title">Name:</label>
+                <br>
+                <select formControlName="deptName" class="w-100 form-control">
+                    <option class="form-title" selected>----Department----</option>
+                    <option class="form-title form-control" *ngFor="let dept of depts">{{dept}}</option>
+                </select>
             </div>
             <div class="form-group mt-2 mb-2">
                 <label class="form-title">Floor:</label>
                 <br>
-                <select formControlName="floor">
+                <select formControlName="floor" class="form-control">
                     <option class="form-title" selected>------choose floor-------</option>
                     <option class="form-title form-control" *ngFor="let floor of floors">{{floor}}</option>
                 </select>
@@ -23,8 +31,11 @@
                 <input type="text" class="form-control form-field" formControlName="hospitalId"/>
             </div> -->
             <div class="d-flex flex-row justify-content-between mt-3">
-               <button class="btn btn-primary" type="submit">Submit</button>
-               <button class="btn btn-primary " routerLink="/RUDdepartment"> Dept List</button>
+               
+               <button style="background-color: darkslategrey;color:white" class="btn" routerLink="/RUDdepartment">
+                <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                Back</button>
+                <button style="background-color: darkslategrey;color:white" class="btn" type="submit">Submit</button>
             </div>
         </form>
     </div>

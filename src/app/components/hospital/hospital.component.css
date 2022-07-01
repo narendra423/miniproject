@@ -1,10 +1,12 @@
 .card-styling{
-    width:50%;
+    /* width:50%; */
     box-shadow: 60px;
 }
 .heading{
     text-shadow: 10px;
     font-size: 20px;
+    font-weight: 700;
+    color: darkslategrey;
 }
 .button{
     width: 80px;
@@ -12,4 +14,42 @@
     padding: 8px;
     text-align: center;
     
+}
+.card-bg{
+    background-image: url("https://res.cloudinary.com/donwtxd4i/image/upload/v1655460202/latest_card_bg_apsg6a.png");
+    height: 150px;
+    background-size: cover;
+    opacity: 0.9;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.4s;
+}
+
+.card-image{
+    height:100%;
+    width: 160px;
+}
+.card-description{
+    padding-left: 20px;
+}
+.paragraph{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: darkslategrey;
+}
+
+.card-bg:hover{
+    transform: scale(1);
+    box-shadow: 5px 5px 15px black;
+}
+.card-left-style{
+    background-color: darkslategrey;
+    padding-left: 10px;
+    border-radius: 10px;
+    width:60%;
+}
+.bg{
+    background-image: url("https://img.freepik.com/free-vector/abstract-medical-science-healthcare-blue-banner-design-template-health-care-medicine-concept-medical-innovation-pharmaceutical-tech-banner-wave-flow-vector-illustration_208588-1629.jpg?w=996");
+    background-size: cover;
 }

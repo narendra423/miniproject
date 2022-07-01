@@ -27,6 +27,19 @@ import { RUDdepartmentComponent } from './components/ruddepartment/ruddepartment
 import { UpdatefloorComponent } from './components/updatefloor/updatefloor.component';
 import { RUDdoctorComponent } from './components/ruddoctor/ruddoctor.component';
 import { CreatedoctorComponent } from './components/createdoctor/createdoctor.component';
+import { CreatepatientComponent } from './components/createpatient/createpatient.component';
+import { RUDpatientComponent } from './components/rudpatient/rudpatient.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { PatientslistComponent } from './components/patientslist/patientslist.component';
+import { DisplaydoctorComponent } from './components/displaydoctor/displaydoctor.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { EditHospitalComponent } from './components/edit-hospital/edit-hospital.component';
+import { NgToastModule } from 'ng-angular-popup';
+import { EditdepartmentComponent } from './components/editdepartment/editdepartment.component';
+import { EditdoctorComponent } from './components/editdoctor/editdoctor.component';
+import { EditpatientComponent } from './components/editpatient/editpatient.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+
 
 
 
@@ -48,7 +61,17 @@ import { CreatedoctorComponent } from './components/createdoctor/createdoctor.co
     UpdatefloorComponent,
     RUDdoctorComponent,
     CreatedoctorComponent,
-   
+    CreatepatientComponent,
+    RUDpatientComponent,
+    PatientslistComponent,
+    DisplaydoctorComponent,
+    EditHospitalComponent,
+    EditdepartmentComponent,
+    EditdoctorComponent,
+    EditpatientComponent
+    
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -60,8 +83,14 @@ import { CreatedoctorComponent } from './components/createdoctor/createdoctor.co
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    BrowserAnimationsModule
-  
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatAutocompleteModule,
+    NgToastModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'
+    })
+    
     
     
   ],

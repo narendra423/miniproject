@@ -1,10 +1,15 @@
-<div class="container d-flex flex-row justify-content-center">
-    <div class="form-border mt-5">
+
+<div class="bg container-fluid d-flex flex-row justify-content-center">
+    <div class="form-border mt-5 mb-5">
         <form class="form-bg shadow-lg" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label class="form-title">Email :</label>
                 <br>
+                <span class="span-field" *ngIf="adminEmail && adminEmail.invalid && adminEmail.touched">*Required</span>
                 <input class="form-control form-field " type="text" placeholder="abc@gmail.com" formControlName="adminEmail"/>
+                
+            
+            
             </div>
             <br>
             <div class="form-group">
@@ -19,10 +24,13 @@
             </div>
             <br>
             
-            <div class="text-center">
-                <button class="btn btn-primary">Login</button>
+            <div >
+                <button style="background-color: darkslategrey;color: white;" class="btn">Login</button>
             </div>
-            
+            <div class="d-flex flex-row justify-content-between mt-4">
+                <p class="form-title">Don't have an account Sign up here  </p>
+                <a routerLink="/signup" style="font-size: 15px; padding-left:5px;">SIGNUP</a>
+            </div>
         </form>
     </div>
 </div>

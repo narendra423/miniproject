@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Department } from 'src/app/model/department';
+import { Hospital } from 'src/app/model/hospital';
 import { DepartmentService } from 'src/app/service/department.service';
 import { HospitalService } from 'src/app/service/hospital.service';
 import { UpdatefloorComponent } from '../updatefloor/updatefloor.component';
@@ -18,16 +20,20 @@ export class RUDdepartmentComponent implements OnInit {
   floor:any;
   department:any;
   doctor:any;
-  constructor(private dialog :MatDialog,private deptservice:DepartmentService,private hospitalService:HospitalService) { }
+  hospitalTemp:any;
+  departmentsTemp:any;
+  showresults = false;
+  hidddd!:number;
+
+  public popoverTitle:string="Delete Confirmation";
+  public popovermessage:string='Do you really want to delete';
+  public confirmClicked:boolean=false;
+  public cancelClicked:boolean=false;
+  
+  constructor(private hospitalservice:HospitalService ,private router: Router,private dialog :MatDialog,private deptservice:DepartmentService,private hospitalService:HospitalService) { }
 
 
-  deleteDepartmentById(i:number){
-    console.log("department delete working")
-    let resp=this.deptservice.deleteDepartment(i);
-    resp.subscribe((data)=>this.departments=data
-    );
-    
-  }
+  
 
   updateDeptFloor(deptId:number){
     const dialogRef = this.dialog.open(UpdatefloorComponent, {
@@ -40,7 +46,21 @@ export class RUDdepartmentComponent implements OnInit {
       console.log(result);
       console.log(deptId);
       this.deptservice.updateDepartmentFloor(result,deptId,this.hospital).subscribe()
-      window.location.reload();
+
+
+      let hospitalIddd=localStorage.getItem('hoSpitalId')
+      let finalHospitalId=JSON.parse(hospitalIddd || '{}');
+      
+      this.hospitalservice.getHospitalById(finalHospitalId).subscribe((data)=>{
+        console.log(data.departments)
+        //this.departments=data;
+        //localStorage.setItem('toBeDesplayedDepts2',JSON.stringify(data.departments))
+      })
+     // this.ngOnInit()
+      this.router.navigate(['RUDdepartment'])
+      console.log(result,"abcdefg")
+     
+      
     });
   }
 
@@ -50,21 +70,57 @@ export class RUDdepartmentComponent implements OnInit {
      
         //console.log(element) 
       //this.hospitals=data
+      let hospitalIddd=localStorage.getItem('hoSpitalId')
+      let finalHospitalId=JSON.parse(hospitalIddd || '{}');
 
-      let data1= localStorage.getItem('toBeDesplayedDepts');
-      //console.log(data1);
+      //----------------------
+      this.hidddd=finalHospitalId;
       
-      let hospitalTemp=JSON.parse(data1 || '{}')  
-      this.departments=hospitalTemp.departments;   
+
+      this.hospitalservice.getHospitalById(finalHospitalId).subscribe((data)=>{
+       // console.log(data.departments);
+        this.hospital = data;
+        this.departments=this.hospital.departments;
+      })
+
+
+      // let departmentsTemp=localStorage.getItem('toBeDesplayedDepts2');
+
+      // let parsedDepartmentsTemp=JSON.parse(departmentsTemp || '{}');
+      // this.hospital=parsedDepartmentsTemp;
+      // this.departments = parsedDepartmentsTemp.departments;
+
+
+
+  
+      // console.log("before remove")
+      // console.log(localStorage.getItem('toBeDesplayedDepts2'),"before removing local stoarage")
+      // console.log("aftyer remove")
+
+      // console.log(localStorage.getItem('toBeDesplayedDepts2'),"after removing local stoarage")
+      // console.log("checking")
+      
+
+
   }
   passingHospitalId(j:any){
     localStorage.setItem('hId',JSON.stringify(j));
-
+    console.log(j);
+   // this.ngOnInit();
+  
 }
 showDoctors(i:any){
-  localStorage.setItem('DoctorsTobeDisplayed',JSON.stringify(this.departments[i]))
-  //let data2=localStorage.getItem('DoctorsTobeDisplayed');
-  //console.log(data2)
+  localStorage.setItem('departmentId',JSON.stringify(this.departments[i].deptId))
+  localStorage.setItem('DoctorsTobeDisplayed',JSON.stringify(this.hospital.departments[i]))
+  this.router.navigate(['RUDdoctor']);
+}
+
+deleteDepartmentById(i:number){
+  console.log("department delete working")
+  let resp=this.deptservice.deleteDepartment(i);
+  resp.subscribe((data)=>this.departments=data
+  );
+ window.location.reload();
 }
 
 

@@ -1,0 +1,78 @@
+<!-- <h1>Name</h1> -->
+
+<div class="d-flex flex-row justify-content-center p-5" style="background-color: #e9f0ed;">
+    <div class="form-border shadow-lg">
+        <h3 class="form-heading">Add Patient :</h3>
+        <form class="form-bg" [formGroup]="createPatientForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-title">Patient Name:</label>
+                            <br>
+                            <span class="span-field" *ngIf="f.patientName && f.patientName.invalid && f.patientName.touched">*Required</span>
+                            <input placeholder="name" type="text" class="form-control form-field" formControlName="patientName"/>
+                        </div>
+                        <div class="form-group mt-3 mb-3">
+                            <label class="form-title">Gender :</label>
+                            <select formControlName="patientGender" class="custom-select w-100 form-control">
+                                <option selected>--Gender--</option>
+                                <option *ngFor="let gender of Genders">{{gender}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-title">Age :</label>
+                            
+                            <span class="span-field" *ngIf="f.patientAge && f.patientAge.invalid && f.patientAge.touched">*Required</span>
+                            <input placeholder="age" type="number" class="form-control form-field" formControlName="patientAge"/>
+                        </div>
+                        <div class="form-group"><br>
+                            <label class="form-title">Blood Group:</label>
+                           
+                            <select formControlName="patientBloodGroup" class="custom-select w-100 form-control form-field">
+                                <option selected>--Blood Group--</option>
+                                <option *ngFor="let bgroup of BloodGroups">{{bgroup}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12"><br>
+                        <div class="form-group">
+                            <label class="form-title">Mobile :</label>
+                            
+                            <span class="span-field" *ngIf="f.patientMobileNumber&& f.patientMobileNumber.invalid && f.patientMobileNumber.touched">*Required</span>
+                            <input placeholder="contact number" type="text" class="form-control form-field" formControlName="patientMobileNumber"/>
+                        </div>
+                        <div class="form-group"><br>
+                            <label class="form-title">Location:</label>
+                            <br>
+                            <span class="span-field" *ngIf="f.patientLocation && f.patientLocation.invalid && f.patientLocation.touched">*Required</span>
+                            <input placeholder="location" type="text" class="form-control form-field" formControlName="patientLocation"/>
+                        </div>
+                        <div class="form-group"><br>
+                            <label class="form-title">Admitted date:</label><br>
+                            <input class="w-100" type="date" formControlName="admittedDate" class="custom-select w-100 form-control"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                <div class="mt-2 d-flex flex-row justify-content-between mt-3">
+                    <button style="background-color: darkslategrey;color:white;" class="btn" routerLink="/RUDpatient">
+                        <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                        Back</button>
+                        <button style="background-color: darkslategrey;color:white" class="btn" type="submit">Submit</button>
+                 </div>
+            
+        </form>
+        <lib-ng-toast></lib-ng-toast>
+        <!-- <div #alert class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Holy g</strong> You should check in on some of those fields below.
+          </div> -->
+        <button style="background-color: darkslategrey;color:white" (click)="assign()" class="btn w-100">
+            Assign This Patient to doctor
+        </button>
+    </div>
+</div>

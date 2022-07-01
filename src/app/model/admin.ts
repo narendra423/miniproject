@@ -3,7 +3,9 @@ export class Admin {
         adminName:string,
         adminEmail:string,
         adminAge:number,
-        password:string
+        password:string,
+        employeeId:number,
+        hospitalCode:string
     ){
 
     }

@@ -9,6 +9,7 @@
 .form-border{
     background-color: #84ba93; padding: 2px; margin-top: 10PX;
     border-radius: 8px;
+    margin: 40px;
 }
 .span-field{
     color: red; font-size: 10px;
@@ -16,5 +17,10 @@
 .form-bg{
     padding:30px; 
     background-color: #edeff2;
+    
+}
+.bg{
+    background-image: url("https://securecdn.pymnts.com/wp-content/uploads/2019/04/tech-disrupt-Alexa-Apple-Google-healthcare.jpg");
+    background-size: cover;
     
 }

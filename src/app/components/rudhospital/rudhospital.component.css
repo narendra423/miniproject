@@ -9,6 +9,36 @@
     height: 35px;
     width: 80px;
 }
+
+.arrow-container{
+    background-image: url("https://res.cloudinary.com/donwtxd4i/image/upload/v1655726524/final_picsart_gjpbxp.png");
+    width: 100%;
+}
+
 .table-field{
     width: 100px;
+}
+.table1{
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    border-collapse: collapse;
+    box-shadow: 0 20px 20px #ccc;
+}
+.table1 thead tr{
+    text-align: left;
+    font-size: 25px;
+    font-weight: bold;
+    background-image: linear-gradient(#8fb3b5,#cedbdb);
+}
+.bg{
+    background-image: url("https://img.freepik.com/free-vector/abstract-medical-science-healthcare-blue-banner-design-template-health-care-medicine-concept-medical-innovation-pharmaceutical-tech-banner-wave-flow-vector-illustration_208588-1629.jpg?w=996");
+    background-size: cover;
+    height: 100vh;
+}
+.bodybg{
+    background-color: #e9f0ed;
+    height: 100vh;
+    background-size: cover;
 }

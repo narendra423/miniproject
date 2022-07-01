@@ -1,0 +1,47 @@
+<div class="d-flex flex-row justify-content-center p-5" style="background-color: #e9f0ed;">
+    <div class="form-border shadow-lg">
+        <h3 class="form-heading">Update Hospital Details:</h3>
+        <form class="form-bg" [formGroup]="createHopspitalForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="form-title">Hospital Name:</label>
+                <br>
+                <span class="span-field" *ngIf="hospitalName && hospitalName.invalid && hospitalName.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="hospitalName"/>
+            </div>
+            
+            <div class="form-group mt-2 mb-2">
+                <label class="form-title">Hospital Type:</label>
+                <br>
+                <select class="form-control" formControlName="hospitalType">
+                    <option class="form-title" selected>--choose hospital type--</option>
+                    <option class="form-title " *ngFor="let type1 of htypes">{{type1}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-title">Hospital Location:</label>
+                <br>
+                <span class="span-field" *ngIf="hospitalLocation && hospitalLocation.invalid && hospitalLocation.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="hospitalLocation"/>
+            </div>
+            <div class="form-group">
+                <label class="form-title">Hospital Code:</label>
+                <br>
+                <span class="span-field" *ngIf="hospitalCode && hospitalCode.invalid && hospitalCode.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="hospitalCode"/>
+            </div>
+            <!-- <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success !</strong>Your Data Updated Successfully !!..
+                <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div> -->
+            <lib-ng-toast></lib-ng-toast>
+            <div class="text-center mt-2 d-flex flex-row justify-content-between mt-3">
+               <button style="background-color: darkslategrey;color:white" class="btn" type="submit">Update</button>
+               <!-- <button style="background-color: darkslategrey;color:white" class="btn" routerLink="/RUDhospital">Hospitals List</button> -->
+               <button style="background-color: darkslategrey;color:white" class="btn" routerLink="/RUDhospital">Hospitals List</button>
+            </div>
+        </form>
+    </div>
+</div>

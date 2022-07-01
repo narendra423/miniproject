@@ -1,4 +1,4 @@
-<div class="d-flex flex-row justify-content-center mt-5">
+<div class="d-flex flex-row justify-content-center p-5" style="background-color: #e9f0ed;">
     <div class="form-border shadow-lg">
         <h3 class="form-heading">Add Doctor :</h3>
         <form class="form-bg" [formGroup]="createDoctorForm" (ngSubmit)="onSubmit()">
@@ -8,17 +8,20 @@
                 <span class="span-field" *ngIf="f.doctorName && f.doctorName.invalid && f.doctorName.touched">*Required</span>
                 <input type="text" class="form-control form-field" formControlName="doctorName"/>
             </div>
-            <div class="form-group">
-                <label class="form-title">Gender :</label>
-                <br>
-                <span class="span-field" *ngIf="f.doctorGender && f.doctorGender.invalid && f.doctorGender.touched">*Required</span>
-                <input type="text" class="form-control form-field" formControlName="doctorGender"/>
+            <div class="form-group mt-3 mb-3">
+                <label class="form-title">Gender :</label><br>
+                <select formControlName="doctorGender" class="custom-select form-control w-100">
+                    <option selected>--Gender--</option><br>
+                    <option *ngFor="let gender of Genders">{{gender}}</option>
+                </select>
             </div>
+
+
             <div class="form-group">
                 <label class="form-title">Age :</label>
                 <br>
                 <span class="span-field" *ngIf="f.doctorAge && f.doctorAge.invalid && f.doctorAge.touched">*Required</span>
-                <input type="text" class="form-control form-field" formControlName="doctorAge"/>
+                <input min="25" max="70" type="number" class="form-control form-field" formControlName="doctorAge"/>
             </div>
             <div class="form-group">
                 <label class="form-title">Mobile :</label>
@@ -26,15 +29,25 @@
                 <span class="span-field" *ngIf="f.doctorMobileNumber && f.doctorMobileNumber.invalid && f.doctorMobileNumber.touched">*Required</span>
                 <input type="text" class="form-control form-field" formControlName="doctorMobileNumber"/>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="form-title">Specialization :</label>
                 <br>
                 <span class="span-field" *ngIf="f.doctorSpecialization && f.doctorSpecialization.invalid && f.doctorSpecialization.touched">*Required</span>
                 <input type="text" class="form-control form-field" formControlName="doctorSpecialization"/>
+            </div> -->
+            <div class="mt-3 mb-4 ">
+                <label class="form-title">Specialization:</label><br>
+                <select formControlName="doctorSpecialization" class="form-control w-100">
+                    <option selected>--Specialization--</option>
+                    <option *ngFor="let spec of specializations">{{spec}}</option>
+                </select>
             </div>
             <div class="text-center mt-2 d-flex flex-row justify-content-between mt-3">
-               <button class="btn btn-primary" type="submit">Submit</button>
-               <button class="btn btn-primary " routerLink="/RUDdoctor">Hospitals List</button>
+               
+               <button style="background-color: darkslategrey;color:white" class="btn" routerLink="/RUDdoctor">
+                <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                Back</button>
+                <button style="background-color: darkslategrey;color:white" class="btn" type="submit">Submit</button>
             </div>
         </form>
     </div>

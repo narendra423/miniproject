@@ -1,1 +1,66 @@
-<p>ruddoctor works!</p>
+<body  style="background-color: #e9f0ed;">
+    <div class="container" style="background-color: #e9f0ed;">
+        <button class="btn mt-1" style="background-color: darkslategrey;color:white" routerLink="/RUDdepartment">
+            <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+            Back</button>
+        <div class="row p-3">
+            <div class="d-flex flex-row justify-content-end">
+                <!-- <h6>Department Name:{{department.deptName}}</h6> -->
+                <button style="background-color: darkslategrey;color:white" class="btn" routerLink="/createdoctor" (click)="passingDoctorId(department.deptId)" > Add Doctor</button>
+            </div>
+            <h6>Doctors List :</h6>
+            <div>
+                <table class="table shadow-lg mt-3" >
+                    <thead>
+                        <tr style="background-color:#d5dae0;">
+                            <th>S.NO</th>
+                            <th>Hospital ID</th>
+                            <th>Doctor Name</th>
+                            <th>Gender </th>
+                            <th>Age </th>
+                            <th>Mobile no</th>
+                            <th>Specialization </th>                          
+                            <th>Edit</th>
+                            <th>Patient List</th>
+                            <th>Delete</th>
+                        </tr>               
+                    </thead>
+                    <tbody>
+                       <tr *ngFor="let doctor of doctors;let i=index">
+                        <td scope="row">{{i+1}}</td>
+                        <td>{{hidddd}}</td>
+                        <td>{{doctor.doctorName}}</td>
+                        <td>{{doctor.doctorGender}}</td>
+                        <td>{{doctor.doctorAge}}</td>
+                        <td>{{doctor.doctorMobileNumber}}</td>
+                        <td>{{doctor.doctorSpecialization}}</td>                       
+                        <td><button style="background-color: darkslategrey;color:white" class="btn" routerLink="/editdoctor/{{doctor.doctorId}}">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                </svg>
+                            </span>
+                        
+                        
+                        </button></td>
+                        <td><button style="background-color: darkslategrey;color:white" class="btn" (click)="showpatients(i)" routerLink="/RUDpatient">Patients</button></td>
+                        <td>
+                            <button class="btn"
+                            mwlConfirmationPopover
+                            [popoverTitle]="popoverTitle"
+                            [popoverMessage]="popovermessage"
+                            placement="top"
+                            (confirm)="deleteDoctor(doctor.doctorId)"
+                            (cancel)="cancelClicked=true"
+                            >
+                            <i class="material-icons">delete</i>
+                            </button>
+                        </td>                                             
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

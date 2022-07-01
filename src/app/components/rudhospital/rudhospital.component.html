@@ -1,12 +1,20 @@
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body class="bodybg">
     <div class="container">
+        <button class="btn mt-1" style="background-color: darkslategrey;color:white" routerLink="/hospital">
+            <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+            Back</button>
+        <!-- <div class="pt-2 d-flex flex-row justify-content-start" >
+            <div class="arrow-container ">
+                <h1>shxdgshg</h1>
+            </div>
+        </div> -->
         <div class="row">
             <div class="mt-4">
                 <div class="col-12 d-flex flex-row justify-content-between" style="text-align:center;">
-                    <input type="text" class="search-query form-control" name="location" placeholder="search" [(ngModel)]="location"/>
+                    <input style="height: 28px;" type="text" class="search-query form-control" name="location" placeholder="search" [(ngModel)]="location"/>
                     <!-- <h1>{{location}}</h1> -->
                     <span>
                         <button class="btn" type="button" (click)="findHospitalByLocation()">
@@ -17,45 +25,72 @@
                             <!-- <span class="material-icons-outlined" mat-button type="button" >refresh</span> -->
                             <button mat-raised-button (click)="refresh()">refresh</button>
                         </button>
-                    
                 </div>
             </div>
         </div>
     </div>
     <br>
     
-    <div  class="container d-flex flex-row justify-content-center">
+    <div  class="container">
         <div class="row">
-            <div class="d-flex flex-row justify-content-end container">
-                <button class="btn btn-primary" routerLink="/createhospital">Add a Hospital</button>
+            <div class="d-flex flex-row justify-content-between">
+                <h6>Hospitals List:</h6>
+                <button style="background-color: darkslategrey;color:white" class="btn" routerLink="/createhospital">Add a Hospital</button>
             </div>
-            <table class="table table-scripted table-styles">
-                <thead>
-                    <tr style="background-color:grey;">
-                        <th>ID</th>
-                        <th>Code</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Location</th>
-                        <th>Delete</th>
-                        <th>Update</th>
-                        <th>View</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let hospital of hospitals;let i=index">
-                        <td class="table-field">{{hospital.hospitalId}}</td>
-                        <td class="table-field">{{hospital.hospitalCode}}</td>
-                        <td class="table-field">{{hospital.hospitalName}}</td>
-                        <td class="table-field">{{hospital.hospitalType}}</td>
-                        <td class="table-field">{{hospital.hospitalLocation}}</td>
-                        <td class="text-center table-field"><button class="btn btn-xs" (click)="deleteHospital(hospital.hospitalId)"><span><i class="material-icons">delete</i>
-                        </span></button></td>
-                        <td><button MatFormFieldControl  class="btn btn-primary"  mat-raised-button (click)="updateHospitalType(hospital.hospitalId)">Update</button></td>
-                        <td><button class="btn btn-primary"  (click)="showdepartments(i)" >Dept List</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="mt-4">
+                <table class="shadow-lg table table-scripted ">
+                    <thead>
+                        <tr style="background-color:#d5dae0;">
+                            <th> S.NO </th>
+                            <th>ID</th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Location</th>
+                            
+                            <th>Edit</th>
+                            <th>View</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hospital of hospitals;let i=index">
+                            <td>{{i+1}}</td>
+                            <td class="table-field">{{hospital.hospitalId}}</td>
+                            <td class="table-field">{{hospital.hospitalCode}}</td>
+                            <td class="table-field">{{hospital.hospitalName}}</td>
+                            <td class="table-field">{{hospital.hospitalType}}</td>
+                            <td class="table-field">{{hospital.hospitalLocation}}</td>
+                            <!-- updateHospitalType(hospital.hospitalId) -->
+                            <td><button [disabled]="hospital.hospitalCode!=loggedInAdminCode" style="background-color: darkslategrey;color:white" MatFormFieldControl  class="btn"  mat-raised-button routerLink="/edithospital/{{hospital.hospitalId}}">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg>
+                                </span>
+                            </button></td>
+                            <td><button  [disabled]="hospital.hospitalCode!=loggedInAdminCode" style="background-color: darkslategrey;color:white" class="btn"  (click)="showdepartments(i)" >Dept List</button></td>
+                            <!-- <td class="text-center table-field"><button class="btn btn-xs" (click)="deleteHospital(hospital.hospitalId)" ><span><i class="material-icons">delete</i>
+                                *ngIf="hospital.hospitalCode===loggedInAdminCode"
+                            </span></button></td> -->
+                            <td>
+                                <button class="btn" [disabled]="hospital.hospitalCode!=loggedInAdminCode"
+                                mwlConfirmationPopover
+                                [popoverTitle]="popoverTitle"
+                                [popoverMessage]="popovermessage"
+                                placement="top"
+                                (confirm)="deleteHospital(hospital.hospitalId)"
+                                (cancel)="cancelClicked=true"
+                                >
+                                <i class="material-icons">delete</i>
+                                </button>
+                            </td>
+                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         
     </div>

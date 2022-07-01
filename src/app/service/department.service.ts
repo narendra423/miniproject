@@ -17,7 +17,7 @@ export class DepartmentService {
   }
 
   getallDepartments(){
-    return this.http.get(`${this.baseUrl23}/getalldepartments`)
+    return this.http.get(`${this.baseUrl23}/getAllDepartments`)
   }
 
   deleteDepartment(id:number):Observable<any>{
@@ -27,5 +27,10 @@ export class DepartmentService {
     return this.http.put(`${this.baseUrl23}/updateFloorById/${floor}/${id}`,value);
   }
 
+  
+
+  getDepartmentById(id:number){
+    return this.http.get(`${this.baseUrl23}/readDepartment/${id}`)
+  }
 
 }

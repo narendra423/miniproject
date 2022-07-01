@@ -1,0 +1,11 @@
+.sorrynotfound{
+    background-image: url("https://cdn.dribbble.com/users/1281958/screenshots/4896646/media/7668af64e2753f4852fbf1980c9bbc0d.gif");
+   min-height: 100vh;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   
+    
+}

@@ -1,17 +1,28 @@
 <div >
-    <nav class="navbar navbar-expand-lg navbar-dark nav-bar p-2 shadow-lg">
-        <img routerLink="" class="logo" src="https://res.cloudinary.com/donwtxd4i/image/upload/v1654059136/Hospital_PIC_k6aowi.png"/>
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bar p-1 shadow-lg">
+        <img routerLink="" class="logo" src="https://res.cloudinary.com/donwtxd4i/image/upload/v1655468753/logos111_ysvfy9.png"/>
        
         
         <div class="d-flex flex-row justify-content-end collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            
+            <li class="nav-item active" *ngIf="showlogin">
               <a class="nav-link" style="color:#25555c; font-weight:bolder;" routerLink="/login">Login </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color:#25555c; font-weight:bolder;" routerLink="signup">Signup</a>
+            <li class="nav-item" *ngIf="showsignup">
+              <a class="nav-link"  style="color:#25555c; font-weight:bolder;" routerLink="signup">Signup</a>
             </li>
-            
+            <li class="nav-item" *ngIf="showcontact">
+              <a class="nav-link" style="color:#25555c; font-weight:bolder;" >Contact Us</a>
+            </li>
+            <li class="nav-item" *ngIf="showabout">
+              <a class="nav-link" style="color:#25555c; font-weight:bolder;" >About</a>
+            </li>
+            <li class="nav-item active" *ngIf="showlogout">
+              <a class="nav-link" style="color:#25555c; font-weight:bolder;" routerLink="/login">
+                <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                Logout</a>
+            </li>
           </ul>
           
         </div>

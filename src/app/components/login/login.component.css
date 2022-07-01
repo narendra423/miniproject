@@ -14,3 +14,11 @@
     color: #222429;
     font-weight: 500;
 }
+.span-field{
+    color: red; font-size: 10px;
+}
+.bg{
+    background-image: url("https://securecdn.pymnts.com/wp-content/uploads/2019/04/tech-disrupt-Alexa-Apple-Google-healthcare.jpg");
+    background-size: cover;
+    
+}

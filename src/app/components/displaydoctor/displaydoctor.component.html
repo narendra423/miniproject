@@ -1,0 +1,31 @@
+<div class="container">
+   <table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>MobileNumber</th>
+            <th>Specialization</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{doctor.doctorId}}</td>
+            <td>{{doctor.doctorName}}</td>
+            <td>{{doctor.doctorGender}}</td>
+            <td>{{doctor.doctorAge}}</td>
+            <td>{{doctor.doctorMobileNumber}}</td>
+            <td>{{doctor.doctorSpecialization}}</td>
+        </tr>
+    </tbody>
+    <button class="button" (click)="refreshing()">No Thanks</button>
+   </table>
+</div>
+
+<!-- doctorName:string,
+        doctorGender:string,
+        doctorAge:number,
+        doctorMobileNumber:string,
+        doctorSpecialization:string, -->

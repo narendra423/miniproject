@@ -23,5 +23,5 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()"  class="mat-form-field">No Thanks</button>
-    <button class="mat-form-field" mat-button [mat-dialog-close]="data.floor" cdkFocusInitial>Ok</button>
+    <button class="mat-form-field" mat-button [mat-dialog-close]="data.floor" cdkFocusInitial (click)="openDeptList()">Ok</button>
 </div>

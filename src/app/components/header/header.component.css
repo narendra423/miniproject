@@ -1,12 +1,22 @@
 .nav-bar{
-    background-image: linear-gradient(to right,#e6f5f4,#98e3de,#84ba93,#84ba93);
+    /* background-image: linear-gradient(to right,#e6f5f4,#98e3de,#84ba93,#84ba93); */
     text-align: right;
+    background-color: #c6f5e8;
 }
 .logo{
-    height: 40px;
+    height: 50px;
     width: 55px;
+    margin-left: 30px;
 }
 .homeicon{
     height: 30px;
     width: 30px;
 }
+.content{
+    color:#25555c;
+    font-weight:bolder;
+}
+/* .logo:hover{
+    transform: scale(1);
+    box-shadow: 5px 5px 15px black;
+} */
