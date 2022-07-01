@@ -39,6 +39,7 @@ import { EditdepartmentComponent } from './components/editdepartment/editdepartm
 import { EditdoctorComponent } from './components/editdoctor/editdoctor.component';
 import { EditpatientComponent } from './components/editpatient/editpatient.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { SampleComponent } from './components/sample/sample.component';
 
 
 
@@ -68,7 +69,8 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     EditHospitalComponent,
     EditdepartmentComponent,
     EditdoctorComponent,
-    EditpatientComponent
+    EditpatientComponent,
+    SampleComponent
     
     
     
