@@ -1,0 +1,23 @@
+.home-bg{
+    background-image: url("https://wallpaperaccess.com/full/1282794.jpg");
+    background-size: cover;
+    height:100vh;
+}
+.align{
+    font-family: 'Franklin Gothic Medium';
+    color: #45727d;
+    text-shadow: 2px 2px 8px #4251;
+  
+}
+.home-container{
+    text-align: center;
+    padding-top: 150px;
+}
+.button{
+    background-color: #477cb5;
+    color: white;
+    margin-top: 25px;
+    
+    width: 80px;
+    height: 40px;
+}

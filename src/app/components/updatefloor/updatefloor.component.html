@@ -1,0 +1,27 @@
+<div mat-dialog-content>
+    <p>Enter Floor You want to change</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Floor</mat-label>
+      <!-- <input matInput [(ngModel)]="data.hospitalName"> -->
+      <select  matNativeControl required [(ngModel)]="data.floor">
+        <option selected>--Choose floor--</option>
+        <option value="1st">1st</option>
+        <option value="2nd">2nd</option>
+        <option value="3rd">3rd</option>
+        <option value="4th">4th</option>
+        <option value="5th">5th</option>
+        <option value="6th">6th</option>
+        <option value="7th">7th</option>
+        <option value="8th">8th</option>
+        <option value="9th">9th</option>
+        <option value="10th">10th</option>
+        <option value="11th">11th</option>
+        <option value="12th">12th</option>
+      </select>
+
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()"  class="mat-form-field">No Thanks</button>
+    <button class="mat-form-field" mat-button [mat-dialog-close]="data.floor" cdkFocusInitial>Ok</button>
+</div>

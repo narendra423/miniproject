@@ -1,0 +1,31 @@
+<div class="d-flex flex-row justify-content-center mt-5">
+    <div class="form-border shadow-lg">
+        <h3 class="form-heading">Add Department :</h3>
+        <form class="form-bg" [formGroup]="createDepartmentForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="form-title">Department Name:</label>
+                <br>
+                <span class="span-field" *ngIf="f.deptName && f.deptName.invalid && f.deptName.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="deptName"/>
+            </div>
+            <div class="form-group mt-2 mb-2">
+                <label class="form-title">Floor:</label>
+                <br>
+                <select formControlName="floor">
+                    <option class="form-title" selected>------choose floor-------</option>
+                    <option class="form-title form-control" *ngFor="let floor of floors">{{floor}}</option>
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label class="form-title">Hospital Id:</label>
+                <br>
+                <span class="span-field" *ngIf="f.hospitalId && f.hospitalId.invalid && f.hospitalId.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="hospitalId"/>
+            </div> -->
+            <div class="d-flex flex-row justify-content-between mt-3">
+               <button class="btn btn-primary" type="submit">Submit</button>
+               <button class="btn btn-primary " routerLink="/RUDdepartment"> Dept List</button>
+            </div>
+        </form>
+    </div>
+</div>

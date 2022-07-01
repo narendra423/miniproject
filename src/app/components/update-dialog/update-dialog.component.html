@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+    <p>Enter the Hospital Type You want to change</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Hospital Type</mat-label>
+      <!-- <input matInput [(ngModel)]="data.hospitalName"> -->
+      <select  matNativeControl required [(ngModel)]="data.hospitalType">
+        <option selected>--Choose Type--</option>
+        <option value="Private">Private</option>
+        <option value="Public">Public</option>
+        <option value="Non-profit">Non-profit</option>
+      </select>
+
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()"  class="mat-form-field">No Thanks</button>
+    <button class="mat-form-field" mat-button [mat-dialog-close]="data.hospitalType" cdkFocusInitial>Ok</button>
+</div>

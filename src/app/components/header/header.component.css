@@ -1,0 +1,12 @@
+.nav-bar{
+    background-image: linear-gradient(to right,#e6f5f4,#98e3de,#84ba93,#84ba93);
+    text-align: right;
+}
+.logo{
+    height: 40px;
+    width: 55px;
+}
+.homeicon{
+    height: 30px;
+    width: 30px;
+}

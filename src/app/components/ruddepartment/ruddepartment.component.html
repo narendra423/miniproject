@@ -1,0 +1,36 @@
+<div class="container ">
+    <div class="row ">
+      <div class="d-flex flex-row justify-content-end">
+        <button class="btn btn-primary" routerLink="/createdepartment" (click)="passingHospitalId(hospital.hospitalId)"> Add Department</button>
+      </div>
+        <div class="col-12  d-flex flex-row justify-content-center ">
+            <table class="table shadow-lg mt-4">
+                <thead>
+                  <tr>
+                    <th scope="col">S.NO</th>
+                    <th scope="col">Dept Id</th>
+                    <th scope="col">Dept Name</th>
+                    <th scope="col">Floor</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                    <th>DoctorsList</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let department of departments;let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{department.deptId}}</td>
+                    <td>{{department.deptName}}</td>
+                    <td>{{department.floor}}</td>
+                    <td class="text-center table-field"><button class="btn btn-xs" (click)="deleteDepartmentById(department.deptId)"><span><i class="material-icons">delete</i>
+                    </span></button></td>
+                    <td><button MatFormFieldControl  class="btn btn-primary"  mat-raised-button (click)="updateDeptFloor(department.deptId)">Update</button></td>
+                    <td><button class="btn btn-primary" (click)="showDoctors(i)">Doctor List</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+   
+</div>

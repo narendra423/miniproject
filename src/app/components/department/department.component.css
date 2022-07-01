@@ -1,0 +1,15 @@
+.card-styling{
+    width:50%;
+    box-shadow: 60px;
+}
+.heading{
+    text-shadow: 10px;
+    font-size: 20px;
+}
+.button{
+    width: 80px;
+    height: 35px;
+    padding: 8px;
+    text-align: center;
+    
+}

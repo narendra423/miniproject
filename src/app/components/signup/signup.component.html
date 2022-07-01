@@ -1,0 +1,42 @@
+
+<div  class="container d-flex flex-row justify-content-center">
+    <div class="form-border">
+        <form class="shadow-lg form-bg" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="form-title" for="adminName">Name :</label>
+                <br>
+                <span class="span-field" *ngIf="adminName && adminName.invalid && adminName.touched">*Required</span>
+                <input type="text" id="adminName" class="form-field form-control" formControlName="adminName"/>
+                
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="form-title" for="adminEmail">Email :</label>
+                <br>
+                <span class="span-field" *ngIf="adminEmail && adminEmail.invalid && adminEmail.touched">*Required</span>
+                <input type="text" id="adminEmail" class="form-field form-control" formControlName="adminEmail" required/>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="form-title" for="adminAge">Age :</label>
+                <br>
+                <span class="span-field" *ngIf="adminAge && adminAge.invalid && adminAge.touched">*Required</span>
+                <input type="text" id="adminAge" class="form-field form-control" formControlName="adminAge"/>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="form-title" for="password">Password :</label>
+                <br>
+                <span class="span-field" *ngIf="password && password.invalid && password.touched">*Required</span>
+                <input type="text" id="password" class="form-field form-control" formControlName="password"/>
+            </div>
+        
+            <br>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Signup</button>
+            </div>
+        
+    </form>
+    </div>
+</div>

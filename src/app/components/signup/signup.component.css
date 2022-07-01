@@ -1,0 +1,20 @@
+.form-title{
+    font-size: 13px;
+    color: #222429;
+    font-weight: 500;
+}
+.form-field {
+    height: 27px;
+}
+.form-border{
+    background-color: #84ba93; padding: 2px; margin-top: 10PX;
+    border-radius: 8px;
+}
+.span-field{
+    color: red; font-size: 10px;
+}
+.form-bg{
+    padding:30px; 
+    background-color: #edeff2;
+    
+}

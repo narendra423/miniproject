@@ -1,0 +1,63 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="mt-4">
+                <div class="col-12 d-flex flex-row justify-content-between" style="text-align:center;">
+                    <input type="text" class="search-query form-control" name="location" placeholder="search" [(ngModel)]="location"/>
+                    <!-- <h1>{{location}}</h1> -->
+                    <span>
+                        <button class="btn" type="button" (click)="findHospitalByLocation()">
+                            <span><i class="material-icons">search</i></span>
+                        </button>
+                    </span>
+                        <button class="btn" type="button">
+                            <!-- <span class="material-icons-outlined" mat-button type="button" >refresh</span> -->
+                            <button mat-raised-button (click)="refresh()">refresh</button>
+                        </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <div  class="container d-flex flex-row justify-content-center">
+        <div class="row">
+            <div class="d-flex flex-row justify-content-end container">
+                <button class="btn btn-primary" routerLink="/createhospital">Add a Hospital</button>
+            </div>
+            <table class="table table-scripted table-styles">
+                <thead>
+                    <tr style="background-color:grey;">
+                        <th>ID</th>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let hospital of hospitals;let i=index">
+                        <td class="table-field">{{hospital.hospitalId}}</td>
+                        <td class="table-field">{{hospital.hospitalCode}}</td>
+                        <td class="table-field">{{hospital.hospitalName}}</td>
+                        <td class="table-field">{{hospital.hospitalType}}</td>
+                        <td class="table-field">{{hospital.hospitalLocation}}</td>
+                        <td class="text-center table-field"><button class="btn btn-xs" (click)="deleteHospital(hospital.hospitalId)"><span><i class="material-icons">delete</i>
+                        </span></button></td>
+                        <td><button MatFormFieldControl  class="btn btn-primary"  mat-raised-button (click)="updateHospitalType(hospital.hospitalId)">Update</button></td>
+                        <td><button class="btn btn-primary"  (click)="showdepartments(i)" >Dept List</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+</body>

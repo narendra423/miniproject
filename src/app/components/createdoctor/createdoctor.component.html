@@ -1,0 +1,41 @@
+<div class="d-flex flex-row justify-content-center mt-5">
+    <div class="form-border shadow-lg">
+        <h3 class="form-heading">Add Doctor :</h3>
+        <form class="form-bg" [formGroup]="createDoctorForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="form-title">Doctor Name:</label>
+                <br>
+                <span class="span-field" *ngIf="f.doctorName && f.doctorName.invalid && f.doctorName.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="doctorName"/>
+            </div>
+            <div class="form-group">
+                <label class="form-title">Gender :</label>
+                <br>
+                <span class="span-field" *ngIf="f.doctorGender && f.doctorGender.invalid && f.doctorGender.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="doctorGender"/>
+            </div>
+            <div class="form-group">
+                <label class="form-title">Age :</label>
+                <br>
+                <span class="span-field" *ngIf="f.doctorAge && f.doctorAge.invalid && f.doctorAge.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="doctorAge"/>
+            </div>
+            <div class="form-group">
+                <label class="form-title">Mobile :</label>
+                <br>
+                <span class="span-field" *ngIf="f.doctorMobileNumber && f.doctorMobileNumber.invalid && f.doctorMobileNumber.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="doctorMobileNumber"/>
+            </div>
+            <div class="form-group">
+                <label class="form-title">Specialization :</label>
+                <br>
+                <span class="span-field" *ngIf="f.doctorSpecialization && f.doctorSpecialization.invalid && f.doctorSpecialization.touched">*Required</span>
+                <input type="text" class="form-control form-field" formControlName="doctorSpecialization"/>
+            </div>
+            <div class="text-center mt-2 d-flex flex-row justify-content-between mt-3">
+               <button class="btn btn-primary" type="submit">Submit</button>
+               <button class="btn btn-primary " routerLink="/RUDdoctor">Hospitals List</button>
+            </div>
+        </form>
+    </div>
+</div>

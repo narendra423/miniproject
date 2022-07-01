@@ -1,0 +1,29 @@
+<div class="container d-flex flex-row justify-content-center">
+    <div class="form-border mt-5">
+        <form class="form-bg shadow-lg" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="form-title">Email :</label>
+                <br>
+                <input class="form-control form-field " type="text" placeholder="abc@gmail.com" formControlName="adminEmail"/>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="form-title">password :</label>
+                <br>
+                
+                <input class="form-control form-field " type="password" id="password" placeholder="password" formControlName="password" />
+                <div class="mt-3">
+                    <input type="checkbox" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'"> 
+                    <label class="form-title" for="password" style="margin-left: 8px;">Show password</label>
+                </div>
+            </div>
+            <br>
+            
+            <div class="text-center">
+                <button class="btn btn-primary">Login</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
